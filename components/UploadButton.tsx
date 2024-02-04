@@ -22,7 +22,6 @@ export function UploadButton({
   return (
     <>
       <FileTrigger
-        defaultCamera="environment"
         acceptedFileTypes={[
           "image/png",
           "image/heic",
