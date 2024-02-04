@@ -1,7 +1,7 @@
 "use client";
-import { select } from "@nextui-org/react";
 import React from "react";
 import { FileTrigger, Button } from "react-aria-components";
+import { Progress } from "@/components/ui/progress";
 
 interface ButtonTextProps {
   selectText: string;
@@ -16,8 +16,23 @@ export function UploadButton({
 }: ButtonTextProps) {
   const [file, setFile] = React.useState<string[] | null>(null);
   const [fileURL, setFileURL] = React.useState<string | null>(null);
+  const [progress, setProgress] = React.useState(0);
+  const [isUploading, setIsUploading] = React.useState(false);
 
   const isDisabled = !file || file.length === 0;
+
+  React.useEffect(() => {
+    if (isUploading) {
+      const timer = setInterval(() => {
+        setProgress((prevProgress) => {
+          const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 1;
+          return nextProgress;
+        });
+      }, 25);
+
+      return () => clearInterval(timer);
+    }
+  }, [isUploading]);
 
   return (
     <>
@@ -41,13 +56,17 @@ export function UploadButton({
         <Button className="hover:bg-primary/90d h-8 w-[200px] rounded-md bg-primary px-3 text-primary-foreground shadow">
           {selectText}
         </Button>
-        <Button
-          isDisabled={isDisabled}
-          className={`${isDisabled ? "bg-gray-400" : "bg-primary"} hover:bg-primary/90d h-8 w-[200px] rounded-md  px-3 text-primary-foreground shadow`}
-        >
-          {uploadText}
-        </Button>
       </FileTrigger>
+      <Button
+        isDisabled={isDisabled}
+        onPress={() => {
+          setIsUploading(true);
+          setProgress(0);
+        }}
+        className={`${isDisabled ? "bg-gray-400" : "bg-primary"} hover:bg-primary/90d h-8 w-[200px] rounded-md  px-3 text-primary-foreground shadow`}
+      >
+        {uploadText}
+      </Button>
       <div>
         {file && file.length > 0 ? (
           file.join(", ")
@@ -55,6 +74,7 @@ export function UploadButton({
           <span className="text-gray-400">{noFileText}</span>
         )}
       </div>
+      <Progress value={progress} />
     </>
   );
 }

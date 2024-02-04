@@ -63,7 +63,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="flex w-8/12 flex-col items-center justify-center gap-10">
+      <div className="flex w-8/12 flex-col items-center justify-center gap-6">
         <LanguageButton onLanguageChange={handleLanguageChange} />
         <UploadButton
           selectText={translations[selectedLanguage].select}
