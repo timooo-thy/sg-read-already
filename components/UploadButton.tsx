@@ -43,7 +43,7 @@ export function UploadButton({
         </Button>
         <Button
           isDisabled={isDisabled}
-          className={`${isDisabled && "bg-gray-400"} hover:bg-primary/90d h-8 w-[200px] rounded-md bg-primary px-3 text-primary-foreground shadow`}
+          className={`${isDisabled ? "bg-gray-400" : "bg-primary"} hover:bg-primary/90d h-8 w-[200px] rounded-md  px-3 text-primary-foreground shadow`}
         >
           {uploadText}
         </Button>
