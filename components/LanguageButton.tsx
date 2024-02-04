@@ -39,7 +39,7 @@ interface LanguageButtonProps {
 
 export function LanguageButton({ onLanguageChange }: LanguageButtonProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState("en");
 
   const handleSelect = (currentValue: Language) => {
     setValue(currentValue);
