@@ -25,14 +25,18 @@ export function UploadButton({
     if (isUploading) {
       const timer = setInterval(() => {
         setProgress((prevProgress) => {
-          const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 1;
+          const nextProgress = prevProgress >= 100 ? 100 : prevProgress + 5;
           return nextProgress;
         });
-      }, 25);
+      }, 100);
 
       return () => clearInterval(timer);
     }
-  }, [isUploading]);
+
+    if (progress == 100) {
+      setIsUploading(false);
+    }
+  }, [isUploading, progress]);
 
   return (
     <>
@@ -61,7 +65,7 @@ export function UploadButton({
         isDisabled={isDisabled}
         onPress={() => {
           setIsUploading(true);
-          setProgress(0);
+          setProgress(-10);
         }}
         className={`${isDisabled ? "bg-gray-400" : "bg-primary"} hover:bg-primary/90d h-8 w-[200px] rounded-md  px-3 text-primary-foreground shadow`}
       >
@@ -74,7 +78,7 @@ export function UploadButton({
           <span className="text-gray-400">{noFileText}</span>
         )}
       </div>
-      <Progress value={progress} />
+      <Progress value={progress} className="transition-wid" />
     </>
   );
 }
