@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy | SG read already?",
   description: "Privacy Policy for sg Read Already?",
 };
 

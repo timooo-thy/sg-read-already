@@ -8,9 +8,9 @@ import "./globals.css";
 const roboto_condensed = Roboto_Condensed({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SG read already?",
+  title: "Home | SG read already?",
   description:
-    "Simple, powerful document reader for elderly and visually impaired people.",
+    "Simple, powerful document summariser and reader for elderly and visually impaired people.",
 };
 
 export default function RootLayout({
