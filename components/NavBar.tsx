@@ -10,9 +10,9 @@ import {
   NavbarMenuToggle,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { AcmeLogo } from "./AcmeLogo";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Separator } from "@/components/ui/separator";
+import { AccessibilityIcon } from "@radix-ui/react-icons";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,8 +35,8 @@ export default function NavBar() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
-          <AcmeLogo />
+        <NavbarBrand className="flex items-center gap-2">
+          <AccessibilityIcon width="22" height="22" />
           <p className="font-bold text-inherit">SG read already?</p>
         </NavbarBrand>
       </NavbarContent>
