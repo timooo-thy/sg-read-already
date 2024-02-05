@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         content: [
           {
             type: "text",
-            text: `Elderies are having a hard time reading this document. I need to to summarise the document and translate it to ${language}, if necessary. Can you help me with that?
+            text: `Elderies are having a hard time reading this document. I need to to summarise the document very succintly and translate it to ${language}, if necessary. Can you help me with that?
             Summarise the main points of the document, do not have any double quotations and ONLY RETURN just the translated summary.`,
           },
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
         ],
       },
     ],
-    max_tokens: 500,
+    max_tokens: 400,
     temperature: 0.3,
   });
   console.log(response.choices[0].message.content);
