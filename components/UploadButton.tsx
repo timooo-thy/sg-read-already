@@ -86,7 +86,7 @@ export function UploadButton({
             if(files[0].type==="image/jpeg" || files[0].type==="image/jpg") {
               prefix = "data:image/jpeg;base64,";
             } else if(files[0].type==="image/png") {
-              prefix = "data:inage/png;base64,"; 
+              prefix = "data:image/png;base64,"; 
             }
 
             if (!base64String?.startsWith(prefix)) {
