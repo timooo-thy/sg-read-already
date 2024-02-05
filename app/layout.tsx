@@ -8,6 +8,8 @@ import "./globals.css";
 
 const roboto_condensed = Roboto_Condensed({ subsets: ["latin"] });
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "Home | SG read already?",
   description:
