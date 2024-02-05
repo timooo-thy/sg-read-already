@@ -39,10 +39,11 @@ export function UploadButton({
 
     if (!response.ok) {
       toast.error("Failed to summarise. Please try again.");
+      setLoading(false);
+    } else {
+      const data: SummariseResponse = await response.json();
+      translate(data.summary);
     }
-
-    const data: SummariseResponse = await response.json();
-    translate(data.summary);
   };
 
   const translate = async (data: string) => {
@@ -79,6 +80,7 @@ export function UploadButton({
           "image/heic",
           "image/jpeg",
           "image/jpg",
+          "image/dng",
         ]}
         onSelect={(e) => {
           let files = Array.from(e || []);
