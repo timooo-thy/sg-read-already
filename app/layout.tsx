@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
@@ -34,6 +35,7 @@ export default function RootLayout({
             <NavBar />
             {children}
             <SpeedInsights />
+            <Analytics />
           </Providers>
         </ThemeProvider>
       </body>
