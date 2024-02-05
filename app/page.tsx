@@ -4,10 +4,10 @@ import { LanguageButton } from "@/components/LanguageButton";
 import { UploadButton } from "@/components/UploadButton";
 
 export default function Home() {
-  type Language = "en" | "cn" | "malay" | "tamil";
+  type Language = "english" | "chinese" | "malay" | "tamil";
 
   const [selectedLanguage, setSelectedLanguage] =
-    React.useState<Language>("en");
+    React.useState<Language>("english");
   const translations: {
     [key in Language]: {
       title: string;
@@ -17,14 +17,14 @@ export default function Home() {
       noFileText: string;
     };
   } = {
-    en: {
+    english: {
       title: "Welcome to SG read already?",
       subtitle: "Summarise and translate your documents with ease.",
       select: "Select a File",
       upload: "Upload",
       noFileText: "No file selected",
     },
-    cn: {
+    chinese: {
       title: "欢迎来到 SG read already?",
       subtitle: "轻松总结和翻译您的文件.",
       select: "选择文件",
@@ -69,6 +69,7 @@ export default function Home() {
           selectText={translations[selectedLanguage].select}
           uploadText={translations[selectedLanguage].upload}
           noFileText={translations[selectedLanguage].noFileText}
+          language={selectedLanguage}
         />
       </div>
     </main>

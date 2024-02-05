@@ -14,11 +14,11 @@ import {
 
 const frameworks: { value: Language; label: string }[] = [
   {
-    value: "en",
+    value: "english",
     label: "English",
   },
   {
-    value: "cn",
+    value: "chinese",
     label: "Chinese",
   },
   {
@@ -31,7 +31,7 @@ const frameworks: { value: Language; label: string }[] = [
   },
 ];
 
-type Language = "en" | "cn" | "malay" | "tamil";
+type Language = "english" | "chinese" | "malay" | "tamil";
 
 interface LanguageButtonProps {
   onLanguageChange: (language: Language) => void;
@@ -39,7 +39,7 @@ interface LanguageButtonProps {
 
 export function LanguageButton({ onLanguageChange }: LanguageButtonProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("en");
+  const [value, setValue] = React.useState("english");
 
   const handleSelect = (currentValue: Language) => {
     setValue(currentValue);
