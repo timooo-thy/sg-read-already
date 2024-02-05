@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const PrivacyPolicy = () => {
   return (
-    <div className="flex min-h-[calc(100vh-64px)] content-center justify-center py-10">
+    <div className="flex min-h-[calc(100dvh-64px)] content-center justify-center py-10">
       <div className="w-10/12 md:w-8/12 md:text-large">
         <h1 className="text-2xl">Privacy Policy for SG read already?</h1>
         <br />
