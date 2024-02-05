@@ -75,20 +75,19 @@ export function UploadButton({
   return (
     <>
       <FileTrigger
-        acceptedFileTypes={[
-          "image/png",
-          "image/heic",
-          "image/jpeg",
-          "image/jpg",
-          "image/dng",
-          "image/heif",
-        ]}
+        acceptedFileTypes={["image/png", "image/jpeg", "image/jpg"]}
         onSelect={(e) => {
           let files = Array.from(e || []);
           let filenames = files.map((file) => file.name);
           const reader = new FileReader();
-          reader.onloadend = (e) => {
-            setFileURL(e.target?.result as string);
+          reader.onload = (e) => {
+            if (e.target?.result && typeof e.target?.result === "string") {
+              setFileURL(
+                e.target?.result
+                  .replace("data:", "")
+                  .replace(/^.+,/, "") as string,
+              );
+            }
           };
           reader.readAsDataURL(files[0]);
           toast.success("Upload successfully.");
