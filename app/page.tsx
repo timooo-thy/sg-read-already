@@ -52,7 +52,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-[calc(100vh-64px)]  flex-col items-center justify-evenly">
+    <main className="flex h-[calc(100dvh-64px)]  flex-col items-center justify-evenly">
       <div className="w-8/12">
         <h1 className=" text-center text-3xl font-bold">
           {translations[selectedLanguage].title}
