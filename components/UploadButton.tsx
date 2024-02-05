@@ -81,8 +81,13 @@ export function UploadButton({
           let filenames = files.map((file) => file.name);
           const reader = new FileReader();
           reader.onloadend = (e) => {
-            const prefix = "data:image/jpeg;base64,";
+            const prefix = "";
             let base64String = e.target?.result as string;
+            if(files[0].type==="image/jpeg" || files[0].type==="image/jpg") {
+              prefix = "data:image/jpeg;base64,";
+            } else if(files[0].type==="image/png") {
+              prefix = "data:inage/png;base64,"; 
+            }
 
             if (!base64String?.startsWith(prefix)) {
               base64String = prefix + base64String;
