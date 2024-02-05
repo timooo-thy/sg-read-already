@@ -81,6 +81,7 @@ export function UploadButton({
           "image/jpeg",
           "image/jpg",
           "image/dng",
+          "image/heif",
         ]}
         onSelect={(e) => {
           let files = Array.from(e || []);
