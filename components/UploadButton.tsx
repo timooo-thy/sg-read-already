@@ -80,14 +80,14 @@ export function UploadButton({
           let files = Array.from(e || []);
           let filenames = files.map((file) => file.name);
           const reader = new FileReader();
-          reader.onload = (e) => {
-            if (e.target?.result && typeof e.target?.result === "string") {
-              setFileURL(
-                e.target?.result
-                  .replace("data:", "")
-                  .replace(/^.+,/, "") as string,
-              );
+          reader.onloadend = (e) => {
+            const prefix = "data:image/jpeg;base64,";
+            let base64String = e.target?.result as string;
+
+            if (!base64String?.startsWith(prefix)) {
+              base64String = prefix + base64String;
             }
+            setFileURL(base64String);
           };
           reader.readAsDataURL(files[0]);
           toast.success("Upload successfully.");

@@ -35,5 +35,6 @@ export async function POST(req: Request) {
     max_tokens: 500,
     temperature: 0.3,
   });
+  console.log(response.choices[0].message.content);
   return NextResponse.json({ summary: response.choices[0].message.content });
 }
