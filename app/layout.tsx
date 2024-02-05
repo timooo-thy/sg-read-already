@@ -3,6 +3,7 @@ import { Roboto_Condensed } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const roboto_condensed = Roboto_Condensed({ subsets: ["latin"] });
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Providers>
             <NavBar />
             {children}
+            <SpeedInsights />
           </Providers>
         </ThemeProvider>
       </body>

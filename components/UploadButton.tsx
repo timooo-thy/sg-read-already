@@ -67,7 +67,7 @@ export function UploadButton({
     audio.load();
     audio
       .play()
-      .catch((e) => toast.error("Failed to play audio. Please try again." + e));
+      .catch((e) => toast.error("Failed to play audio. Please try again."));
     setLoading(false);
   };
 
