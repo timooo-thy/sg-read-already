@@ -54,15 +54,14 @@ export default function Home() {
   return (
     <main className="flex h-[calc(100vh-64px)]  flex-col items-center justify-evenly">
       <div className="w-8/12">
-        <div className="max-h-12">
-          <h1 className=" text-center text-3xl font-bold">
-            {translations[selectedLanguage].title}
-          </h1>
-          <p className="mt-4 text-center text-lg">
-            {translations[selectedLanguage].subtitle}
-          </p>
-        </div>
+        <h1 className=" text-center text-3xl font-bold">
+          {translations[selectedLanguage].title}
+        </h1>
+        <p className="mt-4 text-center text-lg">
+          {translations[selectedLanguage].subtitle}
+        </p>
       </div>
+
       <div className="flex w-8/12 flex-col items-center justify-center gap-6">
         <LanguageButton onLanguageChange={handleLanguageChange} />
         <UploadButton
