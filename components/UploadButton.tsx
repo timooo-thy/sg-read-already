@@ -3,16 +3,13 @@ import { Toaster, toast } from "sonner";
 import React from "react";
 import { FileTrigger, Button } from "react-aria-components";
 import { Spinner } from "@nextui-org/react";
+import type { SummariseResponse } from "@/types/SummariseResponse";
 
-interface ButtonTextProps {
+interface UploadButtonProps {
   selectText: string;
   uploadText: string;
   noFileText: string;
   language: string;
-}
-
-interface SummariseResponse {
-  summary: string;
 }
 
 export function UploadButton({
@@ -20,7 +17,7 @@ export function UploadButton({
   uploadText,
   noFileText,
   language,
-}: ButtonTextProps) {
+}: UploadButtonProps) {
   const [file, setFile] = React.useState<string[] | null>(null);
   const [fileURL, setFileURL] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -83,10 +80,13 @@ export function UploadButton({
           reader.onloadend = (e) => {
             let prefix = "";
             let base64String = e.target?.result as string;
-            if(files[0].type==="image/jpeg" || files[0].type==="image/jpg") {
+            if (
+              files[0].type === "image/jpeg" ||
+              files[0].type === "image/jpg"
+            ) {
               prefix = "data:image/jpeg;base64,";
-            } else if(files[0].type==="image/png") {
-              prefix = "data:image/png;base64,"; 
+            } else if (files[0].type === "image/png") {
+              prefix = "data:image/png;base64,";
             }
 
             if (!base64String?.startsWith(prefix)) {

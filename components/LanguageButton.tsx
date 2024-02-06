@@ -1,8 +1,7 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Command, CommandGroup, CommandItem } from "@/components/ui/command";
@@ -11,28 +10,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-const frameworks: { value: Language; label: string }[] = [
-  {
-    value: "english",
-    label: "English",
-  },
-  {
-    value: "chinese",
-    label: "Chinese",
-  },
-  {
-    value: "malay",
-    label: "Malay",
-  },
-  {
-    value: "tamil",
-    label: "Tamil",
-  },
-];
-
-type Language = "english" | "chinese" | "malay" | "tamil";
-
+import type { Language } from "@/types/Language";
+import { frameworks } from "@/app/translations";
 interface LanguageButtonProps {
   onLanguageChange: (language: Language) => void;
 }
