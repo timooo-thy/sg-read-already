@@ -1,13 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | SG read already?",
-  description: "Privacy Policy for sg Read Already?",
+  description: "Privacy Policy for SG read already?",
 };
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy: FC = () => {
   return (
     <div className="flex min-h-[calc(100dvh-64px)] content-center justify-center py-10">
       <div className="w-10/12 md:w-8/12 md:text-large">

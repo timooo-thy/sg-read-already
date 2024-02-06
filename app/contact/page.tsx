@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import React from "react";
+import { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Metadata } from "next";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Contact me for any queries or feedback, and potential collaborations.",
 };
 
-const Contact = () => {
+const Contact: FC = () => {
   return (
     <div className="flex min-h-[calc(100dvh-64px)] flex-col items-center">
       <h1 className="py-6 text-3xl font-bold">Contact Me</h1>

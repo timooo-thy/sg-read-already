@@ -2,8 +2,9 @@
 import React from "react";
 import { LanguageButton } from "@/components/LanguageButton";
 import { UploadButton } from "@/components/UploadButton";
+import { FC } from "react";
 
-export default function Home() {
+const Home: FC = () => {
   type Language = "english" | "chinese" | "malay" | "tamil";
 
   const [selectedLanguage, setSelectedLanguage] =
@@ -73,4 +74,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Home;
