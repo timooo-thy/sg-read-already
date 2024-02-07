@@ -99,11 +99,15 @@ export function UploadButton({
           setFile(filenames);
         }}
       >
-        <Button className="hover:bg-primary/90d h-8 w-[200px] rounded-md bg-primary px-3 text-primary-foreground shadow">
+        <Button
+          aria-label="Select File Button"
+          className="hover:bg-primary/90d h-8 w-[200px] rounded-md bg-primary px-3 text-primary-foreground shadow"
+        >
           {selectText}
         </Button>
       </FileTrigger>
       <Button
+        aria-label="Upload Button"
         isDisabled={isDisabled}
         onPress={async () => {
           if (fileURL) {

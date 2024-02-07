@@ -33,6 +33,7 @@ export function LanguageButton({ onLanguageChange }: LanguageButtonProps) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
+          aria-label="Language Button"
           className="w-[200px] justify-between"
         >
           {value
