@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto_condensed.className}>
+      <body className={`${roboto_condensed.className} bg-background`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
